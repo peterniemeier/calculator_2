@@ -66,7 +66,7 @@ class App extends Component {
           // second pass
           if (!displayedNum.includes(".")) {
             display.textContent = displayedNum + ".";
-          } else if (previousKeyType === "decimal" || previousKeyType === "calculate") {
+          } else if (previousKeyType === "operator" || previousKeyType === "calculate") {
             display.textContent = "0.";
           }
           calculator.dataset.previousKeyType = "decimal";
@@ -88,9 +88,9 @@ class App extends Component {
           //const secondValue = displayedNum;
 
           //fourth pass
-          const firstValue = calculator.dataset.firstValue;
+          let firstValue = calculator.dataset.firstValue;
           const operator = calculator.dataset.operator;
-          const secondValue = displayedNum;
+          let secondValue = displayedNum;
 
           if (firstValue) {
             if (previousKeyType === "calculate") {
